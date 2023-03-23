@@ -1,7 +1,7 @@
 Package: counterfactuals
 Type: Package
 Title: Counterfactual Explanations
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
         person("Susanne", "Dandl", email = "dandls.datascience@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4324-4163")),
@@ -21,19 +21,19 @@ Depends: R (>= 3.5.0)
 Imports: R6, checkmate, StatMatch, iml, data.table, paradox,
         miesmuschel, bbotk
 Suggests: gower, randomForest, GGally, trtf, testthat, MASS, R.rsp,
-        cowplot, covr, ggplot2, keras, rchallenge, partykit, rmarkdown,
-        basefun, rpart, mlbench, mlr3, mlr3learners, mlr3pipelines,
-        tidymodels, caret, mlr
+        cowplot, covr, ggplot2, keras, rchallenge, gamlss.data,
+        partykit, rmarkdown, basefun, rpart, mlr3, mlr3learners,
+        mlr3pipelines, tidymodels, caret, mlr
 License: LGPL-3
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 VignetteBuilder: R.rsp
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2023-02-10 12:56:35 UTC; susanne
+Packaged: 2023-03-23 09:58:54 UTC; susanne
 Author: Susanne Dandl [aut, cre] (<https://orcid.org/0000-0003-4324-4163>),
   Andreas Hofheinz [aut],
   Martin Binder [ctb],
   Giuseppe Casalicchio [ctb]
 Repository: CRAN
-Date/Publication: 2023-02-13 08:30:02 UTC
+Date/Publication: 2023-03-23 11:32:04 UTC
