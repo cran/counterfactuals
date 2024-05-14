@@ -165,6 +165,7 @@ MOCRegr = R6::R6Class("MOCRegr", inherit = CounterfactualMethodRegr,
     #' @param centered_obj (`logical(1)`)\cr  
     #'   Should the objective values be centered? If set to `FALSE`, each objective value is visualized in a separate plot, 
     #'   since they (usually) have different scales. If set to `TRUE` (default), they are visualized in a single plot.
+    #' @concept plot_statistics
     plot_statistics = function(centered_obj = TRUE) {
       if (!requireNamespace("ggplot2", quietly = TRUE)) {
         stop("Package 'ggplot2' needed for this function to work. Please install it.", call. = FALSE)
@@ -179,6 +180,7 @@ MOCRegr = R6::R6Class("MOCRegr", inherit = CounterfactualMethodRegr,
     #' @description Calculates the dominated hypervolume of each generation. 
     #' 
     #' @return A `data.table` with the dominated hypervolume of each generation.
+    #' @concept get_dominated_hv
     get_dominated_hv = function() {
       if (is.null(self$optimizer)) {
         stop("There are no results yet. Please run `$find_counterfactuals` first.")
@@ -190,6 +192,7 @@ MOCRegr = R6::R6Class("MOCRegr", inherit = CounterfactualMethodRegr,
     #' @param objectives (`character(2)`)\cr  
     #'   The two objectives to be shown in the plot. Possible values are "dist_target", "dist_x_interest, "no_changed",
     #'   and "dist_train".
+    #' @concept plot_search
     plot_search = function(objectives = c("dist_target", "dist_x_interest")) {
       if (!requireNamespace("ggplot2", quietly = TRUE)) {
         stop("Package 'ggplot2' needed for this function to work. Please install it.", call. = FALSE)
@@ -273,22 +276,21 @@ MOCRegr = R6::R6Class("MOCRegr", inherit = CounterfactualMethodRegr,
     },
 
     print_parameters = function() {
-      cat(" - epsilon: ", private$epsilon, "\n")
-      cat(" - fixed_features: ", private$fixed_features, "\n")
-      cat(" - init_strategy: ", private$init_strategy, "\n")
-      cat(" - k: ", private$k, "\n")
-      cat(" - lower: ", private$lower, "\n")
-      cat(" - max_changed: ", private$max_changed, "\n")
-      cat(" - mu: ", private$mu, "\n")
-      cat(" - termination_crit: ", private$termination_crit, "\n")    
-      cat(" - n_generations: ", private$n_generations, "\n")
-      cat(" - p_mut: ", private$p_mut, "\n")
-      cat(" - p_mut_gen: ", private$p_mut_gen, "\n")
-      cat(" - p_mut_use_orig: ", private$p_mut_use_orig, "\n")
-      cat(" - p_rec: ", private$p_rec, "\n")
-      cat(" - p_rec_gen: ", private$p_rec_gen, "\n")
-      cat(" - upper: ", private$upper)
-      cat(" - weights: ", private$weights, "\n")
+      cat(" - epsilon: ", private$epsilon %??% "NULL", "\n")
+      cat(" - fixed_features: ", private$fixed_features %??% "NULL", "\n")
+      cat(" - init_strategy: ", private$init_strategy %??% "NULL", "\n")
+      cat(" - k: ", private$k %??% "NULL", "\n")
+      cat(" - lower: ", private$lower %??% "NULL", "| upper: ", private$upper %??% "NULL", "\n")
+      cat(" - max_changed: ", private$max_changed %??% "NULL", "\n")
+      cat(" - mu: ", private$mu %??% "NULL", "\n")
+      cat(" - termination_crit: ", private$termination_crit %??% "NULL", "\n")    
+      cat(" - n_generations: ", private$n_generations %??% "NULL", "\n")
+      cat(" - p_mut: ", private$p_mut %??% "NULL", "\n")
+      cat(" - p_mut_gen: ", private$p_mut_gen %??% "NULL", "\n")
+      cat(" - p_mut_use_orig: ", private$p_mut_use_orig %??% "NULL", "\n")
+      cat(" - p_rec: ", private$p_rec %??% "NULL", "\n")
+      cat(" - p_rec_gen: ", private$p_rec_gen %??% "NULL", "\n")
+      cat(" - weights: ", private$weights %??% "NULL", "\n")
     }
   )
 )

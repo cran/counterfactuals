@@ -1,7 +1,7 @@
 Package: counterfactuals
 Type: Package
 Title: Counterfactual Explanations
-Version: 0.1.2
+Version: 0.1.4
 Authors@R: c(
         person("Susanne", "Dandl", email = "dandls.datascience@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4324-4163")),
@@ -11,7 +11,7 @@ Authors@R: c(
     )
 Maintainer: Susanne Dandl <dandls.datascience@gmail.com>
 Description: Modular and unified R6-based interface for counterfactual explanation methods.
-    The following methods are currently implemented: Burghmans et al. (2022) <arXiv:2104.07411>, 
+    The following methods are currently implemented: Burghmans et al. (2022) <doi:10.48550/arXiv.2104.07411>, 
     Dandl et al. (2020) <doi:10.1007/978-3-030-58112-1_31> and Wexler et al. (2019) <doi:10.1109/TVCG.2019.2934619>.
     Optional extensions allow these methods to be applied to a variety of models and use cases.
     Once generated, the counterfactuals can be analyzed and visualized by provided functionalities.
@@ -22,18 +22,18 @@ Imports: R6, checkmate, StatMatch, iml, data.table, paradox,
         miesmuschel, bbotk
 Suggests: gower, randomForest, GGally, trtf, testthat, MASS, R.rsp,
         cowplot, covr, ggplot2, keras, rchallenge, gamlss.data,
-        partykit, rmarkdown, basefun, rpart, mlr3, mlr3learners,
-        mlr3pipelines, tidymodels, caret, mlr
+        partykit, mlt, variables, basefun, rmarkdown, rpart, mlr3,
+        mlr3learners, mlr3pipelines, tidymodels, caret, mlr
 License: LGPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 VignetteBuilder: R.rsp
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2023-03-23 09:58:54 UTC; susanne
+Packaged: 2024-05-14 18:38:37 UTC; susanne
 Author: Susanne Dandl [aut, cre] (<https://orcid.org/0000-0003-4324-4163>),
   Andreas Hofheinz [aut],
   Martin Binder [ctb],
   Giuseppe Casalicchio [ctb]
 Repository: CRAN
-Date/Publication: 2023-03-23 11:32:04 UTC
+Date/Publication: 2024-05-14 19:00:02 UTC

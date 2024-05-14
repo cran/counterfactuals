@@ -393,13 +393,13 @@ evaluation and visualization (3).</p>
 <p>To integrate Feature Tweaking, we first need to install
 <code>featureTweakR</code> and <code>pforeach</code> and load the
 required libraries.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;katokohaku/featureTweakR&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># required for FeatureTweakeR</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;hoxo-m/pforeach&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(counterfactuals)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(featureTweakR)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(R6)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;katokohaku/featureTweakR&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co"># required for FeatureTweakeR</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;hoxo-m/pforeach&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(counterfactuals)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">library</span>(featureTweakR)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">library</span>(R6)</span></code></pre></div>
 <div id="class-structure" class="section level3">
 <h3>Class structure</h3>
 <p>A new leaf class needs at least two methods:
@@ -413,56 +413,56 @@ recommended as it gives objects of that class an informative
 supports. Because Feature Tweaking supports classification tasks, the
 new <code>FeatureTweakerClassif</code> class inherits from the
 former.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FeatureTweakerClassif <span class="ot">=</span> R6<span class="sc">::</span><span class="fu">R6Class</span>(<span class="st">&quot;FeatureTweakerClassif&quot;</span>, <span class="at">inherit =</span> CounterfactualMethodClassif,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">public =</span> <span class="fu">list</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">initialize =</span> <span class="cf">function</span>() {}</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">private =</span> <span class="fu">list</span>(</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">run =</span> <span class="cf">function</span>() {},</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">print_parameters =</span> <span class="cf">function</span>() {}</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>FeatureTweakerClassif <span class="ot">=</span> R6<span class="sc">::</span><span class="fu">R6Class</span>(<span class="st">&quot;FeatureTweakerClassif&quot;</span>, <span class="at">inherit =</span> CounterfactualMethodClassif,</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">public =</span> <span class="fu">list</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    <span class="at">initialize =</span> <span class="cf">function</span>() {}</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  ),</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  </span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="at">private =</span> <span class="fu">list</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    <span class="at">run =</span> <span class="cf">function</span>() {},</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    </span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    <span class="at">print_parameters =</span> <span class="cf">function</span>() {}</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>  )</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="implement-the-initialize-method" class="section level3">
 <h3>Implement the <code>$initialize</code> method</h3>
 <p>The <code>initialize()</code> method must have a predictor argument
-that takes an <a href="https://christophm.github.io/iml/reference/Predictor.html"><code>iml::Predictor</code></a>
+that takes an <a href="https://giuseppec.github.io/iml/reference/Predictor.html"><code>iml::Predictor</code></a>
 object. In addition, it may have further arguments that are specific to
 the counterfactual method such as <code>ktree</code>,
 <code>epsiron</code>, and <code>resample</code> in this case. For
 argument checks, we recommend the <a href="https://mllg.github.io/checkmate/"><code>checkmate</code></a>
 package. We also fill the <code>print_parameters()</code> method with
 the parameters of Feature Tweaking.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>FeatureTweakerClassif <span class="ot">=</span> <span class="fu">R6Class</span>(<span class="st">&quot;FeatureTweakerClassif&quot;</span>, <span class="at">inherit =</span> CounterfactualMethodClassif,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">public =</span> <span class="fu">list</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">initialize =</span> <span class="cf">function</span>(predictor, <span class="at">ktree =</span> <span class="cn">NULL</span>, <span class="at">epsiron =</span> <span class="fl">0.1</span>, </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">resample =</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># adds predictor to private$predictor field</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      super<span class="sc">$</span><span class="fu">initialize</span>(predictor) </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      private<span class="sc">$</span>ktree <span class="ot">=</span> ktree</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      private<span class="sc">$</span>epsiron <span class="ot">=</span> epsiron</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      private<span class="sc">$</span>resample <span class="ot">=</span> resample</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">private =</span> <span class="fu">list</span>(</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">ktree =</span> <span class="cn">NULL</span>,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">epsiron =</span> <span class="cn">NULL</span>,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">resample =</span> <span class="cn">NULL</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">run =</span> <span class="cf">function</span>() {},</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">print_parameters =</span> <span class="cf">function</span>() {</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - epsiron: &quot;</span>, private<span class="sc">$</span>epsiron, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - ktree: &quot;</span>, private<span class="sc">$</span>ktree, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - resample: &quot;</span>, private<span class="sc">$</span>resample)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>FeatureTweakerClassif <span class="ot">=</span> <span class="fu">R6Class</span>(<span class="st">&quot;FeatureTweakerClassif&quot;</span>, <span class="at">inherit =</span> CounterfactualMethodClassif,</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  </span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">public =</span> <span class="fu">list</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>     <span class="at">initialize =</span> <span class="cf">function</span>(predictor, <span class="at">ktree =</span> <span class="cn">NULL</span>, <span class="at">epsiron =</span> <span class="fl">0.1</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>      <span class="at">resample =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>      <span class="co"># adds predictor to private$predictor field</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>      super<span class="sc">$</span><span class="fu">initialize</span>(predictor) </span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>      private<span class="sc">$</span>ktree <span class="ot">=</span> ktree</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>      private<span class="sc">$</span>epsiron <span class="ot">=</span> epsiron</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>      private<span class="sc">$</span>resample <span class="ot">=</span> resample</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>    }</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  ),</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>  </span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>  <span class="at">private =</span> <span class="fu">list</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>    <span class="at">ktree =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>    <span class="at">epsiron =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>    <span class="at">resample =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>    </span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>    <span class="at">run =</span> <span class="cf">function</span>() {},</span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>    </span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>    <span class="at">print_parameters =</span> <span class="cf">function</span>() {</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - epsiron: &quot;</span>, private<span class="sc">$</span>epsiron, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - ktree: &quot;</span>, private<span class="sc">$</span>ktree, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - resample: &quot;</span>, private<span class="sc">$</span>resample)</span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>    }</span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>  )</span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="implement-the-run-method" class="section level3">
 <h3>Implement the <code>$run</code> method</h3>
@@ -473,62 +473,62 @@ flexible to add new counterfactual methods to the
 <p>The workflow of finding counterfactuals with the
 <code>featureTweakR</code> package is explained <a href="https://github.com/katokohaku/featureTweakR">here</a> and
 essentially consists of these steps:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rule extraction</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">=</span> <span class="fu">getRules</span>(rf, <span class="at">ktree =</span> 5L)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get e-satisfactory instance </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>es <span class="ot">=</span> <span class="fu">set.eSatisfactory</span>(rules, <span class="at">epsiron =</span> <span class="fl">0.3</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute counterfactuals</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>tweaked <span class="ot">=</span> <span class="fu">tweak</span>(</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  es, rf, x_interest, <span class="at">label.from =</span> ..., <span class="at">label.to =</span> ..., <span class="at">.dopar =</span> <span class="cn">FALSE</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>tweaked<span class="sc">$</span>suggest</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Rule extraction</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>rules <span class="ot">=</span> <span class="fu">getRules</span>(rf, <span class="at">ktree =</span> 5L)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># Get e-satisfactory instance </span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>es <span class="ot">=</span> <span class="fu">set.eSatisfactory</span>(rules, <span class="at">epsiron =</span> <span class="fl">0.3</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># Compute counterfactuals</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>tweaked <span class="ot">=</span> <span class="fu">tweak</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  es, rf, x_interest, <span class="at">label.from =</span> ..., <span class="at">label.to =</span> ..., <span class="at">.dopar =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>tweaked<span class="sc">$</span>suggest</span></code></pre></div>
 <p>As long as <code>ktree</code>—the number of trees to parse—is smaller
 than the total number of trees in the <code>randomForest</code>, the
 rule extraction is a random process. Hence, these steps can be repeated
 <code>resample</code> times to obtain multiple counterfactuals.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FeatureTweakerClassif <span class="ot">=</span> <span class="fu">R6Class</span>(<span class="st">&quot;FeatureTweakerClassif&quot;</span>, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">inherit =</span> CounterfactualMethodClassif,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">public =</span> <span class="fu">list</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">initialize =</span> <span class="cf">function</span>(predictor, <span class="at">ktree =</span> <span class="cn">NULL</span>, <span class="at">epsiron =</span> <span class="fl">0.1</span>, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">resample =</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="co"># adds predictor to private$predictor field</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      super<span class="sc">$</span><span class="fu">initialize</span>(predictor) </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      private<span class="sc">$</span>ktree <span class="ot">=</span> ktree</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      private<span class="sc">$</span>epsiron <span class="ot">=</span> epsiron</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      private<span class="sc">$</span>resample <span class="ot">=</span> resample</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">private =</span> <span class="fu">list</span>(</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">ktree =</span> <span class="cn">NULL</span>,</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">epsiron =</span> <span class="cn">NULL</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">resample =</span> <span class="cn">NULL</span>,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">run =</span> <span class="cf">function</span>() {</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Extract info from private fields</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      predictor <span class="ot">=</span> private<span class="sc">$</span>predictor</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      y_hat_interest <span class="ot">=</span> predictor<span class="sc">$</span><span class="fu">predict</span>(private<span class="sc">$</span>x_interest)</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      class_x_interest <span class="ot">=</span> <span class="fu">names</span>(y_hat_interest)[<span class="fu">which.max</span>(y_hat_interest)]</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>      rf <span class="ot">=</span> predictor<span class="sc">$</span>model</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Search counterfactuals by calling functions in featureTweakR </span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>      rules <span class="ot">=</span> <span class="fu">getRules</span>(rf, <span class="at">ktree =</span> private<span class="sc">$</span>ktree, <span class="at">resample =</span> private<span class="sc">$</span>resample)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>      es <span class="ot">=</span> <span class="fu">set.eSatisfactory</span>(rules, <span class="at">epsiron =</span> private<span class="sc">$</span>epsiron)</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>      tweaks <span class="ot">=</span> featureTweakR<span class="sc">::</span><span class="fu">tweak</span>(</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        es, rf, private<span class="sc">$</span>x_interest, <span class="at">label.from =</span> class_x_interest, </span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">label.to =</span> private<span class="sc">$</span>desired_class, <span class="at">.dopar =</span> <span class="cn">FALSE</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>      res <span class="ot">&lt;-</span> tweaks<span class="sc">$</span>suggest</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">print_parameters =</span> <span class="cf">function</span>() {</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - epsiron: &quot;</span>, private<span class="sc">$</span>epsiron, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - ktree: &quot;</span>, private<span class="sc">$</span>ktree, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - resample: &quot;</span>, private<span class="sc">$</span>resample)</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>FeatureTweakerClassif <span class="ot">=</span> <span class="fu">R6Class</span>(<span class="st">&quot;FeatureTweakerClassif&quot;</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="at">inherit =</span> CounterfactualMethodClassif,</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  </span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">public =</span> <span class="fu">list</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    <span class="at">initialize =</span> <span class="cf">function</span>(predictor, <span class="at">ktree =</span> <span class="cn">NULL</span>, <span class="at">epsiron =</span> <span class="fl">0.1</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>      <span class="at">resample =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>      <span class="co"># adds predictor to private$predictor field</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>      super<span class="sc">$</span><span class="fu">initialize</span>(predictor) </span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>      private<span class="sc">$</span>ktree <span class="ot">=</span> ktree</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>      private<span class="sc">$</span>epsiron <span class="ot">=</span> epsiron</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>      private<span class="sc">$</span>resample <span class="ot">=</span> resample</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>    }</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>  ),</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>  </span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>  <span class="at">private =</span> <span class="fu">list</span>(</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>    <span class="at">ktree =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>    <span class="at">epsiron =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>    <span class="at">resample =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>    </span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>    <span class="at">run =</span> <span class="cf">function</span>() {</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>      <span class="co"># Extract info from private fields</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>      predictor <span class="ot">=</span> private<span class="sc">$</span>predictor</span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>      y_hat_interest <span class="ot">=</span> predictor<span class="sc">$</span><span class="fu">predict</span>(private<span class="sc">$</span>x_interest)</span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>      class_x_interest <span class="ot">=</span> <span class="fu">names</span>(y_hat_interest)[<span class="fu">which.max</span>(y_hat_interest)]</span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>      rf <span class="ot">=</span> predictor<span class="sc">$</span>model</span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a>      </span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a>      <span class="co"># Search counterfactuals by calling functions in featureTweakR </span></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a>      rules <span class="ot">=</span> <span class="fu">getRules</span>(rf, <span class="at">ktree =</span> private<span class="sc">$</span>ktree, <span class="at">resample =</span> private<span class="sc">$</span>resample)</span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a>      es <span class="ot">=</span> <span class="fu">set.eSatisfactory</span>(rules, <span class="at">epsiron =</span> private<span class="sc">$</span>epsiron)</span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a>      tweaks <span class="ot">=</span> featureTweakR<span class="sc">::</span><span class="fu">tweak</span>(</span>
+<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a>        es, rf, private<span class="sc">$</span>x_interest, <span class="at">label.from =</span> class_x_interest, </span>
+<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a>        <span class="at">label.to =</span> private<span class="sc">$</span>desired_class, <span class="at">.dopar =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a>      )</span>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a>      res <span class="ot">&lt;-</span> tweaks<span class="sc">$</span>suggest</span>
+<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a>    },</span>
+<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a>    </span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a>    <span class="at">print_parameters =</span> <span class="cf">function</span>() {</span>
+<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - epsiron: &quot;</span>, private<span class="sc">$</span>epsiron, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - ktree: &quot;</span>, private<span class="sc">$</span>ktree, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot; - resample: &quot;</span>, private<span class="sc">$</span>resample)</span>
+<span id="cb6-41"><a href="#cb6-41" tabindex="-1"></a>    }</span>
+<span id="cb6-42"><a href="#cb6-42" tabindex="-1"></a>  )</span>
+<span id="cb6-43"><a href="#cb6-43" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 </div>
 <div id="use-case" class="section level2">
@@ -536,29 +536,29 @@ rule extraction is a random process. Hence, these steps can be repeated
 <p>Now, that we have implemented <code>FeatureTweakerClassif</code>,
 let’s look at a short application to the <code>iris</code> dataset.</p>
 <p>First, we train a <code>randomForest</code> model on the
-<code>iris</code> data set and set up the <a href="https://christophm.github.io/iml/reference/Predictor.html"><code>iml::Predictor</code></a>
+<code>iris</code> data set and set up the <a href="https://giuseppec.github.io/iml/reference/Predictor.html"><code>iml::Predictor</code></a>
 object, omitting <code>x_interest</code> from the training data.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">78546</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">subset</span>(iris, <span class="at">select =</span> <span class="sc">-</span>Species)[<span class="sc">-</span> 130L,]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> iris<span class="sc">$</span>Species[<span class="sc">-</span>130L]</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>rf <span class="ot">=</span> <span class="fu">randomForest</span>(X, y, <span class="at">ntree =</span> 20L)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">=</span> iml<span class="sc">::</span>Predictor<span class="sc">$</span><span class="fu">new</span>(rf, <span class="at">data =</span> iris[<span class="sc">-</span>130L, ], <span class="at">y =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">78546</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">subset</span>(iris, <span class="at">select =</span> <span class="sc">-</span>Species)[<span class="sc">-</span> 130L,]</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>y <span class="ot">=</span> iris<span class="sc">$</span>Species[<span class="sc">-</span>130L]</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>rf <span class="ot">=</span> <span class="fu">randomForest</span>(X, y, <span class="at">ntree =</span> 20L)</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>predictor <span class="ot">=</span> iml<span class="sc">::</span>Predictor<span class="sc">$</span><span class="fu">new</span>(rf, <span class="at">data =</span> iris[<span class="sc">-</span>130L, ], <span class="at">y =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)</span></code></pre></div>
 <p>For <code>x_interest</code>, the model predicts a probability of 25%
 for <code>versicolor</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x_interest <span class="ot">=</span> iris[130L, ]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>predictor<span class="sc">$</span><span class="fu">predict</span>(x_interest)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   setosa versicolor virginica</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      0        0.3       0.7</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>x_interest <span class="ot">=</span> iris[130L, ]</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>predictor<span class="sc">$</span><span class="fu">predict</span>(x_interest)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt;   setosa versicolor virginica</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt; 1      0        0.3       0.7</span></span></code></pre></div>
 <p>Now, we use Feature Tweaking to address the question: “What would
 need to change in <code>x_interest</code> for the model to predict a
 probability of at least 60% for<code>versicolor</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up FeatureTweakerClassif</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ft_classif <span class="ot">=</span> FeatureTweakerClassif<span class="sc">$</span><span class="fu">new</span>(predictor, <span class="at">ktree =</span> 10L, <span class="at">resample =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Find counterfactuals and create Counterfactuals Object</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>cfactuals <span class="ot">=</span> ft_classif<span class="sc">$</span><span class="fu">find_counterfactuals</span>(</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x_interest =</span> x_interest, <span class="at">desired_class =</span> <span class="st">&quot;versicolor&quot;</span>, <span class="at">desired_prob =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="dv">1</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Set up FeatureTweakerClassif</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>ft_classif <span class="ot">=</span> FeatureTweakerClassif<span class="sc">$</span><span class="fu">new</span>(predictor, <span class="at">ktree =</span> 10L, <span class="at">resample =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># Find counterfactuals and create Counterfactuals Object</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>cfactuals <span class="ot">=</span> ft_classif<span class="sc">$</span><span class="fu">find_counterfactuals</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="at">x_interest =</span> x_interest, <span class="at">desired_class =</span> <span class="st">&quot;versicolor&quot;</span>, <span class="at">desired_prob =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="dv">1</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>)</span></code></pre></div>
 <p>Just as for the existing methods, the result is a
 <code>Counterfactuals</code> object.</p>
 </div>
