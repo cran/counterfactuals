@@ -1,6 +1,6 @@
-7d04b02b30801cb0bd2571efd67fe4c2 *DESCRIPTION
+c28a9fbb5412fc5bbfdf787916603c22 *DESCRIPTION
 86f593531ba7bf5eaf11a991aab699a7 *NAMESPACE
-046e6beb87d9afe21d82ac6d59671a61 *NEWS.md
+073e5bfcfbde28574979caabcab5666d *NEWS.md
 f5991f97d73762e5d13571f1ef53bba9 *R/ConditionalSampler.R
 15e9f504f3cfb7dd949ef18fcf455c24 *R/CounterfactualMethod.R
 83172b56170e4ce5fe85ccbd5f3ee50b *R/CounterfactualMethodClassif.R
@@ -28,11 +28,11 @@ d450c876d26b93974b5468b08d8956d4 *R/whatif_algo.R
 f61db891eb928123aba4412ca322f508 *build/partial.rdb
 8af540983a86a70c6351ab0c8fab257e *build/vignette.rds
 bda574f7729a85f6ee24aef673999165 *inst/CITATION
-f8b458d500172663549eda5622002a5d *inst/doc/how-to-add-new-cf-methods.html
+7e861989d1e4e5f86f72c31a1e0a71ca *inst/doc/how-to-add-new-cf-methods.html
 f7bdd4c64df60100191d3f78f94b4376 *inst/doc/how-to-add-new-cf-methods.html.asis
 37df329e564ae01f4954f269da8aa5d4 *inst/doc/introduction.html
 adad6ad8fe92bb0512f0217450029dfa *inst/doc/introduction.html.asis
-386077646d9e293a2dc50ea7f1857a15 *inst/doc/other_models.html
+33d710f8576e12bcfc06ca7c0ce4977b *inst/doc/other_models.html
 6045f3a258a119cee7f75e3b1a71e50b *inst/doc/other_models.html.asis
 075fa557e20358a4e71e940bf0baef21 *man/CounterfactualMethod.Rd
 ab06233523c4c987563645d083b5326f *man/CounterfactualMethodClassif.Rd

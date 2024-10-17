@@ -1,7 +1,7 @@
 Package: counterfactuals
 Type: Package
 Title: Counterfactual Explanations
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: c(
         person("Susanne", "Dandl", email = "dandls.datascience@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4324-4163")),
@@ -30,10 +30,10 @@ RoxygenNote: 7.3.2
 VignetteBuilder: R.rsp
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2024-10-15 06:53:05 UTC; sdandl
+Packaged: 2024-10-17 09:43:03 UTC; sdandl
 Author: Susanne Dandl [aut, cre] (<https://orcid.org/0000-0003-4324-4163>),
   Andreas Hofheinz [aut],
   Martin Binder [ctb],
   Giuseppe Casalicchio [ctb]
 Repository: CRAN
-Date/Publication: 2024-10-15 08:00:09 UTC
+Date/Publication: 2024-10-17 12:00:06 UTC
