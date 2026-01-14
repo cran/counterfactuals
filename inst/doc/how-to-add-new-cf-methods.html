@@ -540,16 +540,16 @@ let’s look at a short application to the <code>iris</code> dataset.</p>
 <code>iris</code> data set and set up the <a href="https://giuseppec.github.io/iml/reference/Predictor.html"><code>iml::Predictor</code></a>
 object, omitting <code>x_interest</code> from the training data.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">78546</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">subset</span>(iris, <span class="at">select =</span> <span class="sc">-</span>Species)[<span class="sc">-</span> 130L,]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> iris<span class="sc">$</span>Species[<span class="sc">-</span>130L]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">subset</span>(iris, <span class="at">select =</span> <span class="sc">-</span>Species)[<span class="sc">-</span> 150L,]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> iris<span class="sc">$</span>Species[<span class="sc">-</span>150L]</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>rf <span class="ot">=</span> <span class="fu">randomForest</span>(X, y, <span class="at">ntree =</span> 20L)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">=</span> iml<span class="sc">::</span>Predictor<span class="sc">$</span><span class="fu">new</span>(rf, <span class="at">data =</span> iris[<span class="sc">-</span>130L, ], <span class="at">y =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)</span></code></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">=</span> iml<span class="sc">::</span>Predictor<span class="sc">$</span><span class="fu">new</span>(rf, <span class="at">data =</span> iris[<span class="sc">-</span>150L, ], <span class="at">y =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">type =</span> <span class="st">&quot;prob&quot;</span>)</span></code></pre></div>
 <p>For <code>x_interest</code>, the model predicts a probability of 25%
 for <code>versicolor</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x_interest <span class="ot">=</span> iris[130L, ]</span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x_interest <span class="ot">=</span> iris[150L, ]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>predictor<span class="sc">$</span><span class="fu">predict</span>(x_interest)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   setosa versicolor virginica</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      0        0.3       0.7</span></span></code></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      0        0.1       0.9</span></span></code></pre></div>
 <p>Now, we use Feature Tweaking to address the question: “What would
 need to change in <code>x_interest</code> for the model to predict a
 probability of at least 60% for<code>versicolor</code>.</p>
@@ -575,11 +575,14 @@ internal code, but for the sake of clarity we will not do this here.</p>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
-<p>Tolomei, G., Silvestri, F., Haines, A., Lalmas, M.: Interpretable
-Predictions of Tree-based Ensembles via Actionable Feature Tweaking. In:
-Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge
-Discovery and Data Mining. pp. 465–474. KDD ’17, ACM, New York, NY, USA
-(2017). .</p>
+<p>Dandl, S., Hofheinz, A., Binder, M., Bischl, B., &amp; Casalicchio,
+C. (2025). “counterfactuals: An R Package for Counterfactual Explanation
+Methods”. Journal of Statistical Software, 115(9), 1–48. </p>
+<p>Tolomei, G., Silvestri, F., Haines, A., Lalmas, M. (2017).
+“Interpretable Predictions of Tree-based Ensembles via Actionable
+Feature Tweaking”. In: Proceedings of the 23rd ACM SIGKDD International
+Conference on Knowledge Discovery and Data Mining. pp. 465-474. KDD ’17,
+ACM, New York, NY, USA. </p>
 </div>
 
 
